@@ -1,27 +1,37 @@
 #include <stdio.h>
+
 /**
- * main - main function
+ * main - print number compos that are unique\n.
+ * Description: can't use a variable with type char.
  * Return: 0
  */
+
 int main(void)
 {
-	int i;
-	int j;
+	int i, j;
 
-	for (i = 48; i < 58; i++)
+	i = 0;
+	j = 0;
+
+	while (i < 9)
 	{
-		for (j = 48; j < 58; j++)
+		j = i + 1;
+		while (j < 10)
 		{
-			putchar(i);
-			putchar(j);
-			if (i == 57 && j == 57)
+			putchar('0' + i);
+			putchar('0' + j);
+
+			if (i < 8 || j < 9)
 			{
-				break;
+				putchar(',');
+				putchar(' ');
 			}
-			putchar(',');
-			putchar(' ');
+			j++;
 		}
+		++i;
 	}
+
 	putchar('\n');
+
 	return (0);
 }
