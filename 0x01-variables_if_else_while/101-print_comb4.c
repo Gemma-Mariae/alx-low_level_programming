@@ -1,51 +1,34 @@
 #include <stdio.h>
 
 /**
- * main - print number compos that are unique\n.
- * Description: can't use a variable with type char.
+ * main - entry point
+ *
+ * Description: Print all possible different combinations of two digits
  * Return: 0
  */
-
 int main(void)
 {
-	int i, j, k, m;
+	int i;
+	int j;
+	int k;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	m = 0;
-
-	while (i < 10)
+	for (i = 0; i < 10; ++i)
 	{
-		j = 0;
-		while (j < 10)
+		for (j = i + 1; j < 10; ++j)
 		{
-			k = 0;
-
-			while (k < 10)
+			for (k = j + 1; k < 10; ++k)
 			{
-				m = j + 1;
+				putchar('0' + i);
+				putchar('0' + j);
+				putchar('0' + k);
 
-				while (m < 10)
+				if (i != 7 || j != 8 || k != 9)
 				{
-					putchar('0' + i);
-					putchar('0' + j);
+					putchar(',');
 					putchar(' ');
-					putchar('0' + k);
-					putchar('0' + m);
-
-					if (i < 9 || j < 9 || k < 9)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					++m;
 				}
-				k++;
 			}
-			++j;
 		}
-		++i;
 	}
 
 	putchar('\n');
