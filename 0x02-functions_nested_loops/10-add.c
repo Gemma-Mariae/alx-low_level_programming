@@ -1,16 +1,11 @@
 #include "holberton.h"
-#include <stdio.h>
-
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * add - adds two numbers together.
+ * @i: The first number to be added.
+ * @j: The second number to be added.
+ * Return: the sum of two numbers.
  */
-int main(void)
+int add(int i, int j)
 {
-	int n;
-
-	n = add(89, 9);
-	printf("%d\n", n);
-	return (0);
+	return (i + j);
 }
