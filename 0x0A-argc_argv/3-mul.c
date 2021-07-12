@@ -10,19 +10,20 @@
  * main - multiplies two arguments
  * @argc: The argument count
  * @argv: The argument vector
- * Return: Always zero
+ * Return: 0 - i it recieves just two arguments and -1 if it does not
  */
 
 int main(int argc, char *argv[])
 {
-	int total, i, j;
+	int total = 1, i;
 
 
 	if (argc == 3)
 	{
-		i = atoi(argv[1]);
-		j = atoi(argv[2]);
-		total = i * j;
+		for (i = 1; i < argc; i++)
+		{
+			total *= atoi(argv[i]);
+		}
 		printf("%d\n", total);
 		return (0);
 	}
