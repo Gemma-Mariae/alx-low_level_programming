@@ -20,15 +20,15 @@ char *_strdup(char *str)
 	int i;
 	int len = 0;
 
-	if (!str)
+	if (str == NULL)
 		return (NULL);
 
 	for (i = 0; str[i]; i++)
 		len++;
 
-	pdup = malloc(sizeof(str) * (len + 1));
+	pdup = malloc(sizeof(char) * (len + 1));
 
-	if (!pdup)
+	if (pdup == NULL)
 		return (NULL);
 
 	for (i = 0; str[i]; i++)
