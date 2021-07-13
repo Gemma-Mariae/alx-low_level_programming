@@ -3,48 +3,57 @@
  * Author: Ukonu, Divine Chisom
  */
 
-#include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include "holberton.h"
 
 /**
- * argstostr - Concatenates all arguments of the program into a string;
- *             arguments are separated by a new line in the string.
- * @ac: The number of arguments passed to the program.
- * @av: An array of pointers to the arguments.
- *
- * Return: If ac == 0, av == NULL, or the function fails - NULL.
- *         Otherwise - a pointer to the new string.
+ * _strlen - returns the length of a string
+ * @s: string s
+ * Return: length of string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s++)
+		len++;
+
+	return (len);
+}
+
+/**
+ * argstostr - concatenates all the arguments of your program
+ * @ac: argument count
+ * @av: argument vector
+ * Return: concatenated string
  */
 char *argstostr(int ac, char **av)
 {
-	char *str;
-	int arg, byte, index, size = ac;
+	int i, j, len, total;
+	int m = 0;
+	char *ptr;
 
-	if (ac == 0 || av == NULL)
+	if (!ac || !av)
 		return (NULL);
-
-	for (arg = 0; arg < ac; arg++)
+	total = 0;
+	for (i = 0; i < ac; i++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			size++;
+		len = _strlen(av[i]) + 1;
+		total += len;
 	}
-
-	str = malloc(sizeof(char) * size + 1);
-
-	if (str == NULL)
+	ptr = malloc(sizeof(char) * total + 1);
+	if (!ptr)
 		return (NULL);
-
-	index = 0;
-
-	for (arg = 0; arg < ac; arg++)
+	for (i = 0; i < ac; i++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			str[index++] = av[arg][byte];
-
-		str[index++] = '\n';
+		len = _strlen(av[i]);
+		for (j = 0; j < len; j++, m++)
+		{
+			ptr[m] = av[i][j];
+		}
+		ptr[m++] = '\n';
 	}
-
-	str[size] = '\0';
-
-	return (str);
+	ptr[m] = '\0';
+	return (ptr);
 }
