@@ -1,5 +1,5 @@
-#ifndef HOLBERTON_H 
-#define HOLBERTON_H
+#ifndef PI_H
+#define PI_H
 
 /*
  * File: 1-pi.h
@@ -9,5 +9,6 @@
  */
 
 #define PI 3.14159265359
+typedef int make_iso_compilers_happy;
 
 #endif
