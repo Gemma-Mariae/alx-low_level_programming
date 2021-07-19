@@ -1,5 +1,6 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef SUM_H
+#define SUM_H
+
 /*
  * File: 4-sum.h
  * Author: Ukonu Divine Chisom
@@ -8,5 +9,6 @@
  */
 
 #define SUM(x, y) ((x) + (y))
+typedef int make_iso_compilers_happy;
 
 #endif
