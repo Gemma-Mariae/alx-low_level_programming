@@ -17,7 +17,13 @@
  * Return: true
  */
 
-typedef struct dog dog_t;
+typedef struct dog
+{
+char *name;
+float age;
+char *owner;
+}
+dog_t;
 
 int _strlen(char *s);
 void init_dog(struct dog *d, char *name, float age, char *owner);
