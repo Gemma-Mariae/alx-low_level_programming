@@ -1,5 +1,5 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef FUNCTION_LIKE_MACRO_H
+#define FUNCTION_LIKE_MACRO_H
 /*
  * File: 3-function_like_macro.h
  * Author: Ukonu Divine Chisom
@@ -8,5 +8,6 @@
  */
 
 #define ABS(x) ((x) < 0 ? (-x) : (x))
+typedef int make_iso_compilers_happy;
 
 #endif
