@@ -1,10 +1,10 @@
+#ifndef DOG_H
+#define DOG_H
+
 /*
  * File: dog.h
  * Author: Ukonu Divine Chisom
  */
-
-#ifndef DOG_H
-#define DOG_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -17,13 +17,7 @@
  * Return: true
  */
 
-typedef struct dog
-{
-char *name;
-float age;
-char *owner;
-}
-dog_t;
+typedef struct dog dog_t;
 
 int _strlen(char *s);
 void init_dog(struct dog *d, char *name, float age, char *owner);
