@@ -1,9 +1,9 @@
+#ifndef FUNC_POINTERS
+#define FUNC_POINTERS
 /*
  * File: function_pointers.h
  * Author: Ukonu Divine Chisom
  */
-#ifndef FUNC_POINTERS
-#define FUNC_POINTERS
 
 #include <stdio.h>
 #include <stdlib.h>
