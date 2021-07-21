@@ -1,9 +1,10 @@
+#ifndef CALC
+#define CALC
+
 /*
  * File: 3-calc.h
  * Author: Ukonu Divine Chisom
  */
-#ifndef CALC
-#define CALC
 
 #include <stdio.h>
 #include <string.h>
