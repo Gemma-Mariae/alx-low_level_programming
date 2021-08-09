@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * read_textfile - reads a text files na prints it to POSIX stdout
