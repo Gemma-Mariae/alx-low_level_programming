@@ -3,9 +3,8 @@
  * Author: Ukonu, Divine Chisom
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * read_textfile - Reads a text file and prints it to POSIX stdout.
