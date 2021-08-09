@@ -3,42 +3,37 @@
  * Author: Ukonu, Divine Chisom
  */
 
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include "holberton.h"
 
 /**
- * read_textfile - Reads a text file and prints it to POSIX stdout.
- * @filename: A pointer to the name of the file.
- * @letters: The number of letters the
- *           function should read and print.
- *
- * Return: If the function fails or filename is NULL - 0.
- *         O/w - the actual number of bytes the function can read and print.
+ * read_textfile - reads a text files na prints it to POSIX stdout
+ * @filename: name of file to read
+ * @letters: number of letters it should read/print
+ * Return: actual number of letters it could read/print
  */
-int create_file(const char *filename, char *text_content)
-{
-	int op;
-	char *buffer;
-	ssize_t rd, wr;
 
+ssize_t read_textfile(const char *filename, size_t letters)
+{
+	char *str;
+	int fp, output, read_file;
+
+	str = malloc(sizeof(char) * letters);
+	if (!str)
+	{
+		free(str);
+		return (0);
+	}
 	if (!filename)
 		return (0);
-
-	buffer = malloc(sizeof(char) * letters + 1);
-	if (!buffer)
+	fp = open(filename, O_RDONLY);
+	if (fp == -1)
+	{
 		return (0);
-
-	op = open(filename, O_RDONLY);
-	if (op == -1)
-		return (0);
-	rd = read(op, buffer, letters);
-	if (rd == -1)
-		return (free(buffer), 0);
-	close(op);
-
-	wr = write(STDOUT_FILENO, buffer, rd);
-	free(buffer);
-	if (wr != rd)
-		return (0);
-	return (rd);
+	}
+	read_file = read(fp, str, letters);
+	output = write(STDOUT_FILENO, str, read_file);
+	close(fp);
+	return (output);
 }
