@@ -15,30 +15,30 @@
  * Return: If the function fails or filename is NULL - 0.
  *         O/w - the actual number of bytes the function can read and print.
  */
-ssize_t read_textfile(const char *filename, size_t letters)
+int create_file(const char *filename, char *text_content)
 {
-	ssize_t op, rd, wr;
+	int op;
 	char *buffer;
+	ssize_t rd, wr;
 
-	if (filename == NULL)
+	if (!filename)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
+	buffer = malloc(sizeof(char) * letters + 1);
+	if (!buffer)
 		return (0);
 
 	op = open(filename, O_RDONLY);
-	rd = read(op, buffer, letters);
-	wr = write(STDOUT_FILENO, buffer, rd);
-
-	if (op == -1 || rd == -1 || wr == -1 || wr != rd)
-	{
-		free(buffer);
+	if (op == -1)
 		return (0);
-	}
-
-	free(buffer);
+	rd = read(op, buffer, letters);
+	if (rd == -1)
+		return (free(buffer), 0);
 	close(op);
 
+	wr = write(STDOUT_FILENO, buffer, rd);
+	free(buffer);
+	if (wr != rd)
+		return (0);
 	return (rd);
 }
