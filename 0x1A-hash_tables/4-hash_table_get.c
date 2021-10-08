@@ -1,7 +1,7 @@
 /*
  * File: 4-hash_table_get.c
- * Auth: Brennan D Baraban
-*/
+ *
+ */
 
 #include "hash_tables.h"
 
